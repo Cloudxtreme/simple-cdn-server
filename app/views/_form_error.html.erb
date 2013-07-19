@@ -1,0 +1,10 @@
+<% if record.errors.any? %>
+    <%= format_flash :error do %>
+        <h2><%= pluralize(record.errors.count, 'error') %> prohibited this <%= record.class.name.singularize.downcase %> from being saved</h2>
+        <ul>
+    <% record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <% end %>
+<% end %>
