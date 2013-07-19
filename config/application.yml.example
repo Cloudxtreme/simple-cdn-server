@@ -1,0 +1,24 @@
+defaults: &defaults
+  server:
+    ftp:
+      interface: localhost
+      port: 2121
+      tls: off # off, explicit, implicit
+      session_timeout: ~
+      # Temporary configs
+      user: user
+      password: password
+      account: password
+      read_only: false
+      eplf: false
+      auth_level: password
+      debug: true
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
