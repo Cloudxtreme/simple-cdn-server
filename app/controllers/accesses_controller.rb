@@ -16,6 +16,7 @@ class AccessesController < ApplicationController
     @access = Access.create(params[:access].permit(:identifier))
 
     if @access.save
+      SimpleCDN::Configurator::CDN.create(@access)
       redirect_to @access
     else
       render 'new'
@@ -30,6 +31,7 @@ class AccessesController < ApplicationController
     @access = Access.find(params[:id])
 
     if @access.update(params[:access].permit(:identifier))
+      SimpleCDN::Configurator::CDN.update(@access)
       redirect_to @access
     else
       render 'edit'
