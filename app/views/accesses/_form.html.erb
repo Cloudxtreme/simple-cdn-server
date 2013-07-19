@@ -1,0 +1,23 @@
+<%= form_for @access do |f| %>
+
+  <% if @access.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@access.errors.count, "error") %> prohibited
+      this access from being saved:</h2>
+    <ul>
+    <% @access.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <% end %>
+  <p>
+    <%= f.label :identifier %><br>
+    <%= f.text_field :identifier %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
