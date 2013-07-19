@@ -1,23 +1,15 @@
-<%= form_for @access do |f| %>
+<%= form_for @access, html: { class: "form-horizontal" } do |f| %>
 
-  <% if @access.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@access.errors.count, "error") %> prohibited
-      this access from being saved:</h2>
-    <ul>
-    <% @access.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+  <%= render partial: '/form_error', locals: { record: @access } %>
 
-  <% end %>
-  <p>
-    <%= f.label :identifier %><br>
-    <%= f.text_field :identifier %>
-  </p>
+    <div class="control-group">
+        <%= f.label :identifier, class: "control-label" %>
+        <div class="controls">
+            <%= f.text_field :identifier, placeholder: :identifier %>
+        </div>
+    </div>
  
-  <p>
-    <%= f.submit %>
-  </p>
+    <div class="form-actions">
+        <%= f.submit class: "btn btn-primary" %>
+    </div>
 <% end %>
