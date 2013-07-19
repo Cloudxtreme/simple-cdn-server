@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  identifier: MyString
+  password: MyString
+  password_salt: MyString
+  quotas: 1
+
+two:
+  identifier: MyString
+  password: MyString
+  password_salt: MyString
+  quotas: 1
