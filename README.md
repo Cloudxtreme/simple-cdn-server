@@ -22,4 +22,3 @@ Just configure for all request go to base of cdn ftp.
 __For custom CDN__
 
 Use `*.assets.cdn.my-domain.net` and link it to `assets/` folder.
->>>>>>> Stashed changes
