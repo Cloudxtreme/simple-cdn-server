@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'sinatra', '1.4.3'
-# gem 'puma'
+gem 'sinatra', github: 'sinatra/sinatra'
+gem 'sinatra-contrib', github: 'sinatra/sinatra-contrib'
+gem 'puma'
+gem 'shotgun'
 gem 'emk-sinatra-url-for'
 gem 'sinatra-activerecord'
 gem 'activerecord'

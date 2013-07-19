@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130719140139) do
+ActiveRecord::Schema.define(version: 20130719165643) do
 
-  create_table "access", force: true do |t|
+  create_table "accesses", force: true do |t|
     t.string   "identifier"
     t.string   "password"
     t.string   "cdn_domain"

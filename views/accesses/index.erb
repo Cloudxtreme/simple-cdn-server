@@ -6,13 +6,15 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-    <% if @access.count > 0 %>
-        <% @access.each do |a| %>
+    <% if @accesses.count > 0 %>
+        <% @accesses.each do |a| %>
         <tr>
-            <td><%= a.identifier %></td>
+            <td><a href="<%= url_for "/accesses/#{a.id}" %>"><%= a.identifier %></a></td>
+            <td><a href="<%= url_for "/accesses/edit/#{a.id}" %>">Edit.</a></td>
         </tr>
         <% end %>
     <% else %>

@@ -1,0 +1,39 @@
+<div class="page-header">
+    <h1>CDN Access: <%= @access.identifier %></h1>
+</div>
+
+<table class="table table-striped table-hover">
+    <tbody>
+        <tr>
+            <th width="180">Identifier/FTP user</th>
+            <td><%= @access.identifier %></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><%= @access.password %></td>
+        </tr>
+        <tr>
+            <th>CDN Domain</th>
+            <td><%= @access.cdn_domain %></td>
+        </tr>
+        <tr>
+            <th>Quotas</th>
+            <td><%= @access.cdn_domain %></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Carrierwave configuration</h2>
+
+<p>Use gem <code>carrierwave-ftp</code> (<a href="https://github.com/luan/carrierwave-ftp">https://github.com/luan/carrierwave-ftp</a>).</p>
+
+<pre>
+CarrierWave.configure do |config|
+  config.ftp_host = "ftp.example.com"
+  config.ftp_port = 21
+  config.ftp_user = "<%= @access.identifier %>"
+  config.ftp_passwd = "<%= @access.password %>"
+  config.ftp_folder = "/"
+  config.ftp_url = "<%= @access.identifier %>"
+end
+</pre>

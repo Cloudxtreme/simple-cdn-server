@@ -1,0 +1,11 @@
+<div class="page-header">
+    <h1>New CDN Access</h1>
+</div>
+
+<form action="/accesses" method="post">
+  <label for="post_identifier">Identifier:</label><br />
+  <input id="post_identifier" name="access[identifier]" type="text" value="<%= @access.identifier %>" />
+  <br />
+
+  <input type="submit" value="Create Access" />
+</form>
