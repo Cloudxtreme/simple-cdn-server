@@ -8,7 +8,30 @@
             <%= f.text_field :identifier, placeholder: :identifier %>
         </div>
     </div>
- 
+
+    <div class="control-group">
+        <%= f.label :domain, class: "control-label" %>
+        <div class="controls">
+            <div class="input-prepend">
+                <span class="add-on">*.</span>
+                <%= f.text_field :domain, placeholder: :domain %>
+            </div>
+            <span class="help-inline">CNAME</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :quotas, class: "control-label" %>
+        <div class="controls">
+            <div class="input-append">
+                <%= f.text_field :quotas, placeholder: :quotas %>
+                <span class="add-on">Bytes</span>
+            </div>
+            <span class="help-inline"></span>
+        </div>
+    </div>
+
+
     <div class="form-actions">
         <%= f.submit class: "btn btn-primary" %>
     </div>
