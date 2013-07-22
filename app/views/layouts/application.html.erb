@@ -59,7 +59,10 @@
     </div>
 
     <div class="container">
-        <%= bootstrap_flash %>
+
+        <div id="flash-area">
+            <%= format_flashes %>
+        </div>
 
         <%= yield %>
 
