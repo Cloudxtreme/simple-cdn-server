@@ -15,16 +15,17 @@ module SimpleCDN
     end
 
     def create_vhost_file
-      return true  if vhost_file_exists? @access
+      return true  if vhost_file_exists?
       return false unless @access.try(:identifier)
 
-      template 'admin_user.rb.erb', "#{path_to_nginx}/app/admin/simple_cdn_#{access.identifier}"
+      # template 'admin_user.rb.erb', "#{vhost_filename}/app/admin/simple_cdn_#{@access.identifier}"
     end
 
     def reload_configuration!
       line = Cocaine::CommandLine.new("/etc/init.d/nginx", "reload")
       begin
         line.run
+      rescue Cocaine::CommandNotFoundError => e
       rescue Cocaine::ExitStatusError => e
         # => You never get here!
       end
@@ -37,7 +38,7 @@ module SimpleCDN
     end
 
     def vhost_file_exists?
-      File.exists? vhost_filename(@access)
+      File.exists? vhost_filename
     end
 
     def vhost_filename
