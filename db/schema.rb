@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130719183935) do
+ActiveRecord::Schema.define(version: 20130722192126) do
 
   create_table "accesses", force: true do |t|
     t.string   "identifier"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20130719183935) do
     t.integer  "quotas"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "domain"
+    t.integer  "size"
   end
 
 end
