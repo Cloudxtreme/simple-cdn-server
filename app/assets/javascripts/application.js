@@ -18,4 +18,10 @@
 
 
 // make code pretty
-window.prettyPrint && prettyPrint();
+jQuery(document).ready(function($) {
+    window.prettyPrint && prettyPrint();
+});
+
+jQuery(document).on('page:change', function(e) {
+    window.prettyPrint && prettyPrint();
+});
