@@ -53,3 +53,5 @@ gem 'settingslogic'
 # gem 'debugger', group: [:development, :test]
 
 # gem 'vagrant', group: :development
+
+gem 'bcrypt-ruby'
