@@ -14,7 +14,7 @@ module SimpleCDN
       # @data_dir = Ftpd::TempDir.make
       @data_dir = "#{Rails.root}/data/cdn_repositories"
       # create_files
-      @driver = SimpleCDN::Server::Ftp::Driver.new(user, password, account, @data_dir)
+      @driver = SimpleCDN::Server::Ftp::Driver.new(@data_dir)
       @server = Ftpd::FtpServer.new(@driver)
       @server.interface = @args.interface
       @server.port      = @args.port
@@ -163,7 +163,7 @@ end
 #         end
 #         op.on('--eplf', 'LIST uses EPLF format') do |t|
 #           @eplf = t
-#         end 
+#         end
 #         op.on('--read-only', 'Prohibit put, delete, rmdir, etc.') do |t|
 #           @read_only = t
 #         end

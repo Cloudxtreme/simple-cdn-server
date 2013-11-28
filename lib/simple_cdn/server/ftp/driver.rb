@@ -3,10 +3,7 @@ module SimpleCDN
 
     # Your driver's initialize method can be anything you need.  Ftpd
     # does not create an instance of your driver.
-    def initialize(user, password, account, data_dir)
-      @user      = user
-      @password  = password
-      @account   = account
+    def initialize(data_dir)
       @data_dir  = data_dir
     end
 
@@ -24,16 +21,16 @@ module SimpleCDN
     # * :password (user, password)
     # * :account (user, password, account)
     def authenticate(user, password, account)
-      user == @user &&
-        (password.nil? || password == @password) &&
-        (account.nil? || account == @account)
+      @access = Access.find_by_identifier(user)
+
+      return @access.password == password
     end
 
     # Return the file system to use for a user.
     # @param user [String]
     # @return A file system driver that quacks like {Ftpd::DiskFileSystem}
     def file_system(user)
-      Ftpd::DiskFileSystem.new("#{@data_dir}/#{@user}")
+      Ftpd::DiskFileSystem.new("#{@data_dir}/#{@access.identifier}")
     end
 
   end
