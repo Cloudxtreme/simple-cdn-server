@@ -1,8 +1,8 @@
 # CDN application
 
 - Use nginx
-- Use pure-ftpd or ftp ruby
-- Use Sinatra
+- Use a ruby gem for ftp server
+- Use Rails
 
 
 ## Example of use
