@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130722192126) do
+ActiveRecord::Schema.define(version: 20131128101343) do
 
   create_table "accesses", force: true do |t|
     t.string   "identifier"
-    t.string   "password"
-    t.string   "password_salt"
+    t.string   "password_hash"
     t.integer  "quotas"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "domain"
     t.integer  "size"
   end
+
+  add_index "accesses", ["identifier"], name: "index_accesses_on_identifier", unique: true
 
 end
