@@ -69,6 +69,6 @@ class AccessesController < ApplicationController
 private
 
   def get_params
-    params.require(:access).permit(:identifier, :domain, :quotas)
+    params.require(:access).permit(:identifier, :domain, :quotas, :password)
   end
 end
