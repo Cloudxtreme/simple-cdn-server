@@ -52,4 +52,4 @@ gem 'settingslogic'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'vagrant', group: :development
+# gem 'vagrant', group: :development
