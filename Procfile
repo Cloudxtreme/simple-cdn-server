@@ -1,2 +1,2 @@
 web:
-ftpd: bin/ftpd
+worker: bin/ftpd
