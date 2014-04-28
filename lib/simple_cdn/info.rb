@@ -2,8 +2,8 @@ module SimpleCDN
   module Info #:nodoc:
     class << self
       def app_name; 'SimpleCDN' end
-      def url; 'https://github.com/nicolas-brousse/simple-cdn-server/' end
-      def help_url; 'https://github.com/nicolas-brousse/simple-cdn-server/wiki' end
+      def url; 'https://github.com/hellobitches/simple-cdn-server/' end
+      def help_url; 'https://github.com/hellobitches/simple-cdn-server/wiki' end
       def versioned_name; "#{app_name} #{Invoicer::VERSION}" end
 
       def environment
