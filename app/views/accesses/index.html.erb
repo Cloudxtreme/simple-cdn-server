@@ -31,7 +31,7 @@
             <td><%= a.domain %></td>
             <td>
                 <div class="progress">
-                    <div class="bar" style="width: 60%;"></div>
+                    <div class="bar" style="width: <%= a.ratio_use * 100 %>%;"></div>
                 </div>
             </td>
             <td>
@@ -48,7 +48,7 @@
         <% end %>
     <% else %>
         <tr>
-            <td colspan="2">No CDN acess</td>
+            <td colspan="4">No CDN acess</td>
         </tr>
     <% end %>
     </tbody>

@@ -40,12 +40,13 @@
             </thead>
             <tbody>
                 <% @nearly_full_accesses.each do |a| -%>
-                <tr class="error">
+                    <% ratio = a.ratio_use * 100 %>
+                <tr class="<%= ratio > 90 ? 'error' : '' %>">
                     <td><%= link_to a.identifier, access_path(a) %></td>
                     <td><%= a.domain %></td>
                     <td>
-                        <div class="progress progress-danger">
-                            <div class="bar" style="width: 90%;"></div>
+                        <div class="progress<%= ratio > 90 ? ' progress-danger' : '' %>">
+                            <div class="bar" style="width: <%= ratio %>%;"></div>
                         </div>
                     </td>
                 </tr>
