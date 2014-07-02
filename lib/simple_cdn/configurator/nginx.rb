@@ -11,6 +11,7 @@ module SimpleCDN
     def self.update access
       cdn = self.new(access)
 
+      cdn.create_vhost_file # Replace if domain change (but domain is changeable?)
       cdn.reload_configuration!
     end
 
