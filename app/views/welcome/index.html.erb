@@ -17,10 +17,14 @@
             <tbody>
                 <tr>
                     <th>FTP</th>
-                    <td><span class="label label-success">OK</span></td>
+                    <td>
+                      <span class="label label-<%= SimpleCDN::Server::Ftp.is_running ? 'success' : 'important' %>">
+                        <i class="icon icon-<%= SimpleCDN::Server::Ftp.is_running ? 'ok' : 'remove' %>"></i>
+                      </span>
+                    </td>
                 </tr>
                 <tr>
-                    <th>FTP</th>
+                    <th>HTTP</th>
                     <td><span class="label label-important">ERROR</span></td>
                 </tr>
             </tbody>

@@ -1,16 +1,39 @@
+require 'fileutils'
+
 module SimpleCDN
   class Server::Ftp
 
     include Ftpd::InsecureCertificate
 
+    PID_FILENAME = Rails.root.join('tmp', 'pids', 'ftpd.pid').to_s
+
     def self.run
       self.new.run
+    end
+
+    def self.is_running
+      return false unless File.file?(PID_FILENAME)
+
+      pid = File.open(PID_FILENAME) {|f| f.readline}.to_i
+      begin
+        Process.kill(0, pid)
+        return true
+      # rescue Errno::EPERM                     # changed uid
+      #   puts "No permission to query #{pid}!";
+      # rescue Errno::ESRCH
+      #   puts "#{pid} is NOT running.";      # or zombied
+      rescue
+        # puts "Unable to determine status for #{pid} : #{$!}"
+        return false
+      end
     end
 
     def initialize
       @settings = SimpleCDN::Settings.server.ftp
 
-      @data_dir = "#{Rails.root}/data/cdn_repositories"
+      @data_dir = Rails.root.join('data', 'cdn_repositories')
+
+      FileUtils.mkdir_p(Rails.root.join('tmp', 'pids'))
 
       @driver = SimpleCDN::Server::Ftp::Driver.new(@data_dir)
       @server = Ftpd::FtpServer.new(@driver)
@@ -47,7 +70,7 @@ module SimpleCDN
     end
 
     def save_pid
-      # TODO
+      File.open(PID_FILENAME, 'w+') {|f| f.write(pid) }
     end
 
     def display_connection_info
@@ -66,6 +89,7 @@ module SimpleCDN
         gets
       rescue Interrupt
         puts "Interrupt"
+        File.delete(PID_FILENAME)
       end
     end
 
@@ -76,6 +100,5 @@ module SimpleCDN
     def make_log
       @settings.debug && Logger.new($stdout)
     end
-
   end
 end
