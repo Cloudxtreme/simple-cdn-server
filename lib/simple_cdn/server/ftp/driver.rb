@@ -50,21 +50,21 @@ module SimpleCDN
     def init_access
       FileUtils.mkdir_p(@access_dir)
 
-      create_files
+      # create_files
     end
 
-    def create_file path, contents
-      full_path = File.expand_path(path, @access_dir)
-      FileUtils.mkdir_p File.dirname(full_path)
-      File.open(full_path, 'w') do |file|
-        file.write contents
-      end
-    end
-
-    def create_files
-      create_file 'README',
-      "This file, and the directory it is in, will go away\n"
-      "When this example exits.\n"
-    end
+    # def create_file path, contents
+    #   full_path = File.expand_path(path, @access_dir)
+    #   FileUtils.mkdir_p File.dirname(full_path)
+    #   File.open(full_path, 'w') do |file|
+    #     file.write contents
+    #   end
+    # end
+    #
+    # def create_files
+    #   create_file 'README',
+    #   "This file, and the directory it is in, will go away\n"
+    #   "When this example exits.\n"
+    # end
   end
 end
